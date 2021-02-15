@@ -13,4 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'FrontendController@index');
+Auth::routes();
+
+Route::get('/', 'FrontendController@index')->name('home');
+Route::get('/dashboard', 'AdminController@index')->name('dashboard');
