@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/', 'FrontendController@index')->name('home');
 Route::get('/dashboard', 'AdminController@index')->name('dashboard');
