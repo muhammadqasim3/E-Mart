@@ -18,5 +18,7 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/', 'FrontendController@index')->name('home');
 Route::group(['middleware' => 'auth'], function(){
-	Route::get('/dashboard', 'AdminController@index')->name('dashboard');	
+	Route::get('/dashboard', 'Admin\\AdminController@index')->name('dashboard');	
 });
+
+Route::resource('products', 'Admin\\ProductController');

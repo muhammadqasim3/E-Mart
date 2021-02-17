@@ -52,21 +52,10 @@
       </div>
       <!-- Site wrapper -->
       <div class="wrapper">
-        @include('layouts.admin.header')
-         <!-- =============================================== -->
-         <!-- Left side column. contains the sidebar -->
-        @include('layouts.admin.sidebar')
-         <!-- =============================================== -->
-         <!-- Content Wrapper. Contains page content -->
-         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            @yield('content')
-            <!-- /.content -->
-         </div>
-         <!-- /.content-wrapper -->
-         <footer class="main-footer">
-            <strong>Copyright &copy; 2016-2017 <a href="#">Thememinister</a>.</strong> All rights reserved.
-         </footer>
+         @include('layouts.admin.header')
+         @include('layouts.admin.sidebar')
+         @yield('content')
+         @include('layouts.admin.footer')
       </div>
       <!-- /.wrapper -->
       <!-- Start Core Plugins
