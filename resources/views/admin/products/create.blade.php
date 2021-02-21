@@ -27,7 +27,8 @@
                    </div>
                 </div>
                 <div class="panel-body">
-                   <form class="col-sm-6">
+                   <form class="col-sm-6" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+           			@csrf
                       <div class="form-group">
                          <label>Name</label>
                          <input type="text" class="form-control" placeholder="Enter Product Name" name="name" required>
@@ -59,8 +60,8 @@
                          <label class="radio-inline"><input type="radio" name="status" value="0" >Inactive</label>
                       </div>
                       <div class="reset-button">
-                         <a href="#" class="btn btn-warning">Reset</a>
-                         <a href="#" class="btn btn-success">Save</a>
+                         <button class="btn btn-warning" type="submit" onclick="event.preventDefault();">Reset</button>
+						 <button class="btn btn-success" type="submit">Save</button>
                       </div>
                    </form>
                 </div>

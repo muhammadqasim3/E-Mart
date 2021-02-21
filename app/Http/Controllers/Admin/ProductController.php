@@ -35,7 +35,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        if($data->hasFile('image')){
+            $tmp = $data->image->getOriginalFileExtension();
+            $filename = date('mdYHis') . uniqid();    
+        }
+        
+        dd('data', $data);
     }
 
     /**
