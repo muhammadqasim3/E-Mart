@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Image;
+use App\Product;
 
 class ProductController extends Controller
 {
@@ -36,12 +38,18 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        if($data->hasFile('image')){
-            $tmp = $data->image->getOriginalFileExtension();
-            $filename = date('mdYHis') . uniqid();    
+        # Image Code
+        if($request->hasFile('image')){
+            $extension = $request->image->getClientOriginalExtension();
+            $filename = date('mdYHis') . uniqid() . '.' . $extension;
+            $img_path = 'uploads/products/' . $filename;    
+            
+            Image::make($data['image'])->resize(500,500)->save($img_path);
+            $data['image'] = $filename;
         }
         
-        dd('data', $data);
+        Product::create($data);
+        return redirect()->back()->with('flash_message', 'Product added successfully!');
     }
 
     /**
