@@ -18,7 +18,7 @@
                      </a>
                      <ul class="treeview-menu">
                         <li><a href="{{ route('products.create') }}">Add Product</a></li>
-                        <li><a href="javascript:void(0)">View Products</a></li>
+                        <li><a href="{{ route('products.index') }}">View Products</a></li>
                      </ul>
                   </li>
                </ul>
