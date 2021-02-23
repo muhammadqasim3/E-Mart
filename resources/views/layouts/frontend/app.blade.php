@@ -22,7 +22,7 @@
     @stack('css')
 </head>
 
-<body>
+<body class="hold-transition sidebar-mini">
 
     @include('layouts.frontend.header')
 
