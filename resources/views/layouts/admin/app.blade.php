@@ -44,6 +44,9 @@
       <!--<link href="assets/dist/css/stylecrm-rtl.css" rel="stylesheet" type="text/css"/>-->
       <!-- End Theme Layout Style
          =====================================================================-->
+      <!-- Datatables CSS -->
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
    </head>
    <body class="hold-transition sidebar-mini">
       <!--preloader-->
@@ -95,6 +98,9 @@
       <script src="{{ asset('admin_assets/dist/js/dashboard.js') }}" type="text/javascript"></script>
       <!-- End Theme label Script
          =====================================================================-->
+
+   <!-- Datatables Script -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
       <script>
          function dash() {
          // single bar chart
@@ -175,6 +181,7 @@
          }
          dash();         
       </script>
+      @stack('scripts')
    </body>
 </html>
 

@@ -30,7 +30,7 @@
                 <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
                    <div class="btn-group">
                       <div class="buttonexport" id="buttonlist"> 
-                         <a class="btn btn-add" href="javascript:void(0)"> <i class="fa fa-plus"></i> Add Customer
+                         <a class="btn btn-add" href="javascript:void(0)"> <i class="fa fa-plus"></i> Add Product
                          </a>  
                       </div>
                       <button class="btn btn-exp btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Table Data</button>
@@ -88,7 +88,7 @@
                    </div>
                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
                    <div class="table-responsive">
-                      <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                      <table id="productDatatable" class="table table-bordered table-striped table-hover">
                          <thead>
                             <tr class="info">
                                <th>Photo</th>
@@ -103,48 +103,6 @@
                             </tr>
                          </thead>
                          <tbody>
-                            <tr>
-                               <td><img src="{{ asset('admin_assets/dist/img/w1.png') }}" class="img-circle" alt="User Image" width="50" height="50"> </td>
-                               <td>MD. Alimul Alrazy</td>
-                               <td>+8801674688663</td>
-                               <td><a href="http://thememinister.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2d4c415f4c57546d5945484048404443445e59485f034e4240">[email&#160;protected]</a></td>
-                               <td>98 Green Rd, Dhaka 1215, Bangladesh</td>
-                               <td>V.I.P</td>
-                               <td>27th April,2017</td>
-                               <td><span class="label-custom label label-default">Active</span></td>
-                               <td>
-                                  <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="#customer1"><i class="fa fa-pencil"></i></button>
-                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#customer2"><i class="fa fa-trash-o"></i> </button>
-                               </td>
-                            </tr>
-                            <tr>
-                               <td><img src="{{ asset('admin_assets/dist/img/w2.png') }}" class="img-circle" alt="User Image" width="50" height="50"> </td>
-                               <td>MD. Alrazy</td>
-                               <td>+8801674688663</td>
-                               <td><a href="http://thememinister.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="17767b65766d6e57637f727a727a7e797e646372653974787a">[email&#160;protected]</a></td>
-                               <td>98 Green Rd, Dhaka 1215, Bangladesh</td>
-                               <td>V.I.P</td>
-                               <td>27th April,2017</td>
-                               <td><span class="label-danger label label-default">Inctive</span></td>
-                               <td>
-                                  <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="#customer1"><i class="fa fa-pencil"></i></button>
-                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#customer2"><i class="fa fa-trash-o"></i> </button>
-                               </td>
-                            </tr>
-                            <tr>
-                               <td><img src="{{ asset('admin_assets/dist/img/w3.png') }}" class="img-circle" alt="User Image" width="50" height="50"> </td>
-                               <td>Mrs. Jorina Begum</td>
-                               <td>+8801674688663</td>
-                               <td><a href="http://thememinister.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e0818c92819a99a09488858d858d898e8993948592ce838f8d">[email&#160;protected]</a></td>
-                               <td>98 Green Rd, Dhaka 1215, Bangladesh</td>
-                               <td>V.I.P</td>
-                               <td>27th April,2017</td>
-                               <td><span class="label-danger label label-default">Inactive</span></td>
-                               <td>
-                                  <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="#customer1"><i class="fa fa-pencil"></i></button>
-                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#customer2"><i class="fa fa-trash-o"></i> </button>
-                               </td>
-                            </tr>
                             <tr>
                                <td><img src="{{ asset('admin_assets/dist/img/w4.png') }}" class="img-circle" alt="User Image" width="50" height="50"> </td>
                                <td>Mrs. Rabeya Begum</td>
@@ -263,3 +221,11 @@
   <!-- ./wrapper -->
 
 @endsection
+
+@push('scripts')
+	<script type="text/javascript">
+		$(document).ready( function () {
+   			$('#productDatatable').DataTable();
+		});
+	</script>
+@endpush

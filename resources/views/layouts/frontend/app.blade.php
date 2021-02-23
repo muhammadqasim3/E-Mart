@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/style.css') }}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/responsive.css') }}">
-    <!-- Custom CSS -->
+    <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/custom.css') }}">
     @stack('css')
 </head>
@@ -48,6 +48,7 @@
     <script src="{{ asset('frontend_assets/js/contact-form-script.js') }}"></script>
     <script src="{{ asset('frontend_assets/js/custom.js') }}"></script>
     @stack('scripts')
+    
 
     
 </body>
