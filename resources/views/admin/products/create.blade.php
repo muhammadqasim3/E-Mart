@@ -22,7 +22,7 @@
              <div class="panel panel-bd lobidrag">
                 <div class="panel-heading">
                    <div class="btn-group" id="buttonlist"> 
-                      <a class="btn btn-add " href="clist.html"> 
+                      <a class="btn btn-add " href="{{ route('products.index') }}"> 
                       <i class="fa fa-list"></i>  Product List </a>  
                    </div>
                 </div>
