@@ -72,7 +72,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -84,7 +85,22 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $data = $request->all();
+        $product = Product::findOrFail($id);
+        
+        # Image Code
+        if($request->hasFile('image')){
+            $extension = $request->image->getClientOriginalExtension();
+            $filename = date('mdYHis') . uniqid() . '.' . $extension;
+            $img_path = 'uploads/products/' . $filename;    
+            
+            Image::make($data['image'])->resize(500,500)->save($img_path);
+            $data['image'] = $filename;
+        }
+        
+        $product->update($data);
+        return redirect()->back()->with('flash_message', 'Product updated successfully!');
     }
 
     /**

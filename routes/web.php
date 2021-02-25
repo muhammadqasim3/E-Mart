@@ -21,4 +21,4 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/dashboard', 'Admin\\AdminController@index')->name('dashboard');	
 });
 
-Route::resource('products', 'Admin\\ProductController');
+Route::resource('admin/products', 'Admin\\ProductController');
