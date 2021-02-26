@@ -14,7 +14,7 @@
 </div>
 <div class="form-group">
    <label>Description</label>
-   <textarea name="description" class="form-control">{{ $product->description }}</textarea>
+   <textarea name="description" class="form-control">{{ $product->description  }}</textarea>
 </div>
 <div class="form-group">
    <label>Price($)</label>
