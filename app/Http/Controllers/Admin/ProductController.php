@@ -61,7 +61,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        dd('detail page');
     }
 
     /**
@@ -111,6 +111,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        if($product){
+            $product->delete();
+        }
+
+        return redirect()->back();
     }
+
 }

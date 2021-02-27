@@ -73,7 +73,11 @@
 	                               <td>
                                     <a href="javascript:void(0)" type="button" class="btn btn-add btn-sm"><i class="fa fa-eye"></i></a>
 	                                  <a href="{{ route('products.edit', $product->id) }}" type="button" class="btn btn-add btn-sm"><i class="fa fa-pencil"></i></a>
-	                                  <a type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#customer2"><i class="fa fa-trash-o"></i> </a>
+                                    <form action="{{route('products.destroy', $product->id)}}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> </button>
+                                    </form>
 	                               </td>
 	                            </tr>
 	                        @endforeach    

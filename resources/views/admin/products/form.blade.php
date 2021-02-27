@@ -1,5 +1,3 @@
-
-
 <div class="form-group">
    <label>Name</label>
    <input type="text" class="form-control" placeholder="Enter Product Name" name="name" value="{{ $product->name }}" required>
