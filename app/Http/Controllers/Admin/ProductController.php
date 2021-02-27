@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Image;
 use App\Product;
+use Alert;
 
 class ProductController extends Controller
 {
@@ -116,6 +117,7 @@ class ProductController extends Controller
             $product->delete();
         }
 
+        alert()->success('Success', 'Successfully deleted!')->persistent(true);;
         return redirect()->back();
     }
 
