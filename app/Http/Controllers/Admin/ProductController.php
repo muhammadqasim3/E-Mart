@@ -28,6 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        
         return view('admin.products.create');
     }
 
@@ -51,7 +52,9 @@ class ProductController extends Controller
         }
         
         Product::create($data);
-        return redirect()->back()->with('flash_message', 'Product added successfully!');
+
+        alert()->success('Success', 'Product added successfully!');
+        return redirect()->back();
     }
 
     /**
@@ -86,7 +89,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        dd($request->all());
         $data = $request->all();
         $product = Product::findOrFail($id);
         
@@ -101,7 +104,8 @@ class ProductController extends Controller
         }
         
         $product->update($data);
-        return redirect()->back()->with('flash_message', 'Product updated successfully!');
+        alert()->success('Success', 'Product updated successfully!');
+        return redirect()->back();
     }
 
     /**
@@ -117,7 +121,7 @@ class ProductController extends Controller
             $product->delete();
         }
 
-        alert()->success('Success', 'Successfully deleted!')->persistent(true);;
+        alert()->success('Success', 'Product deleted successfully!')->persistent(true);
         return redirect()->back();
     }
 
