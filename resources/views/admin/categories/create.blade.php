@@ -10,7 +10,7 @@
           <i class="fa fa-users"></i>
        </div>
        <div class="header-title">
-          <h1>Add Product</h1>
+          <h1>Add Category</h1>
        </div>
     </section>
     <!-- Main content -->
@@ -21,17 +21,17 @@
              <div class="panel panel-bd lobidrag">
                 <div class="panel-heading">
                    <div class="btn-group" id="buttonlist"> 
-                      <a class="btn btn-add " href="{{ route('products.index') }}"> 
-                      <i class="fa fa-list"></i>  Product List </a>  
+                      <a class="btn btn-add " href="{{ route('categories.index') }}"> 
+                      <i class="fa fa-list"></i>  Categories List </a>  
                    </div>
                 </div>
                 <div class="panel-body">
 
                   <!-- Form Start -->
-                   <form class="col-sm-6" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+                   <form class="col-sm-6" action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
            			      @csrf
 
-                      @include('admin.products.form')
+                      @include('admin.categories.form')
 
                       <div class="reset-button">
                          <button class="btn btn-warning" type="submit" onclick="event.preventDefault();">Reset</button>

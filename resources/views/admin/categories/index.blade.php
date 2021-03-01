@@ -10,8 +10,8 @@
           <i class="fa fa-users"></i>
        </div>
        <div class="header-title">
-          <h1>Products</h1>
-          <small>Product List</small>
+          <h1>Categories</h1>
+          <small>Category List</small>
        </div>
     </section>
     <!-- Main content -->
@@ -22,7 +22,7 @@
                 <div class="panel-heading">
                    <div class="btn-group" id="buttonexport">
                       <a href="#">
-                         <h4>Products</h4>
+                         <h4>Categories</h4>
                       </a>
                    </div>
                 </div>
@@ -30,7 +30,7 @@
                 <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
                    <div class="btn-group">
                       <div class="buttonexport" id="buttonlist"> 
-                         <a class="btn btn-add" href="{{ route('products.create') }}"> <i class="fa fa-plus"></i> Add Product
+                         <a class="btn btn-add" href="{{ route('categories.create') }}"> <i class="fa fa-plus"></i> Add Category
                          </a>  
                       </div>
                       <button class="btn btn-exp btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Table Data</button>
@@ -51,33 +51,27 @@
                          <thead>
                             <tr class="info">
                                <th>ID</th>
-                               <th>Name</th>
-                               <th>Code</th>
-                               <th>Color</th>
-                               <th>Image</th>
-                               <th>Price</th>
+                               <th>Title</th>
+                               <th>Parent Category</th>
                                <th>Status</th>
                                <th>Action</th>
                             </tr>
                          </thead>
                          <tbody>
-                         	@foreach($products as $product)
+                         	@foreach($categories as $category)
 	                            <tr>
-	                               <td>{{ $product->id }}</td>
-                                 <td>{{ $product->name }}</td>
-	                               <td>{{ $product->code }}</td>
-	                               <td>{{ $product->color }}</td>
-	                               <td><img src="{{ asset('uploads/products/'.$product->image ) }}" class="img-circle" alt="Product Image" width="50" height="50"></td>
-	                               <td>${{ $product->price }}</td>
-                                 @if($product->status == 1)
-	                               <td><span class="label-custom label label-default">Active</span></td>
+	                               <td>{{ $category->id }}</td>
+                                 <td>{{ $category->title }}</td>
+	                               <td>{{ isset($category->parent_id) ? $category->parent_id : 'N/A' }}</td>
+                                 @if($category->status == 1)
+                                 <td><span class="label-custom label label-default">Active</span></td>
                                  @else
                                  <td><span class="label-danger label label-default">Inactive</span></td>
                                  @endif
 	                               <td>
                                     <a href="javascript:void(0)" type="button" class="btn btn-add btn-sm"><i class="fa fa-eye"></i></a>
-	                                  <a href="{{ route('products.edit', $product->id) }}" type="button" class="btn btn-add btn-sm"><i class="fa fa-pencil"></i></a>
-                                    <form action="{{route('products.destroy', $product->id)}}" method="POST" style="display: inline;">
+	                                  <a href="{{ route('categories.edit', $category->id) }}" type="button" class="btn btn-add btn-sm"><i class="fa fa-pencil"></i></a>
+                                    <form action="{{route('categories.destroy', $category->id)}}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> </button>

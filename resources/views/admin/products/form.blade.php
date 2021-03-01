@@ -1,4 +1,14 @@
 <div class="form-group">
+   
+   <label>Name</label>
+   <select name="category_id" class="form-control">
+      <option value="">--- Select Category ---</option>
+      @foreach($categories as $category)
+         <option value="{{ $category->id }}">{{ $category->title }}</option>
+      @endforeach
+   </select>
+</div>
+<div class="form-group">
    <label>Name</label>
    <input type="text" class="form-control" placeholder="Enter Product Name" name="name" value="{{ isset($product->name) ? $product->name : null }}" required>
 </div>
@@ -28,7 +38,7 @@
 
 <div class="form-group">
    <label>Picture upload</label>
-   <input type="file" name="image" required>
+   <input type="file" name="image">
 </div>
 
 @if(isset($product))

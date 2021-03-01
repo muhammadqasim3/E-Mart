@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Image;
 use App\Product;
+use App\Category;
 use Alert;
 
 class ProductController extends Controller
@@ -28,8 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        
-        return view('admin.products.create');
+        $categories = Category::all();
+        return view('admin.products.create', compact('categories'));
     }
 
     /**
@@ -77,7 +78,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return view('admin.products.edit', compact('product'));
+        $categories = Category::all();
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -89,7 +91,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
         $data = $request->all();
         $product = Product::findOrFail($id);
         
