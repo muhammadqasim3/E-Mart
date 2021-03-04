@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Category;
 
 class Product extends Model
 {
@@ -13,4 +14,8 @@ class Product extends Model
     protected $fillable = ['name', 'code', 'color', 'description', 'price', 'image', 'status'];
 
     protected $with = [];
+
+    public function categories(){
+    	return $this->hasMany(Category::class);
+    }
 }
