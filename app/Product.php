@@ -16,6 +16,6 @@ class Product extends Model
     protected $with = [];
 
     public function categories(){
-    	return $this->hasMany(Category::class);
+    	return $this->belongsToMany(Category::class);
     }
 }

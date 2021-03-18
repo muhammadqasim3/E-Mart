@@ -55,7 +55,7 @@ class ProductController extends Controller
         
         $product = Product::create($data);
 
-        $product->categories()->sync($product); 
+        $product->categories()->sync($request->category_id);  
         alert()->success('Success', 'Product added successfully!');
         return redirect()->back();
     }
@@ -106,9 +106,9 @@ class ProductController extends Controller
             $data['image'] = $filename;
         }
         
-        $product = $product->update($data);
+        $product->update($data);
 
-        $product->categories()->sync($product); 
+        $product->categories()->sync($request->category_id); 
 
         alert()->success('Success', 'Product updated successfully!');
         return redirect()->back();
