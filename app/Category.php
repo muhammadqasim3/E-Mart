@@ -3,6 +3,7 @@
 namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Product;
+use App\Category;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
@@ -16,6 +17,10 @@ class Category extends Model
 
     public function products(){
     	return $this->hasMany(Product::class);
+    }
+
+    public function categories(){
+    	return $this->hasMany(Category::class);
     }
 
 }

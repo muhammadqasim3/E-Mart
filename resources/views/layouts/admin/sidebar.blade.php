@@ -9,6 +9,19 @@
                      </span>
                      </a>
                   </li>
+                  <!-- Banners -->
+                  <li class="treeview">
+                     <a href="#">
+                     <i class="fa fa-list-alt"></i><span>Banners</span>
+                     <span class="pull-right-container">
+                     <i class="fa fa-angle-left pull-right"></i>
+                     </span>
+                     </a>
+                     <ul class="treeview-menu">
+                        <li><a href="{{ route('banners.create') }}">Add Banner</a></li>
+                        <li><a href="{{ route('banners.index') }}">View Banners</a></li>
+                     </ul>
+                  </li>
                   <!-- Products -->
                   <li class="treeview">
                      <a href="#">
@@ -35,6 +48,7 @@
                         <li><a href="{{ route('categories.index') }}">View Categories</a></li>
                      </ul>
                   </li>
+                  
                </ul>
             </div>
             <!-- /.sidebar -->
