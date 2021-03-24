@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Banner;
+use Alert;
 
 class BannerController extends Controller
 {
@@ -14,7 +16,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        dd('ejr');
+        $banners = Banner::where('status', 1)->get();
+        return view('admin.banners.index', compact('banners'));
     }
 
     /**
@@ -24,7 +27,8 @@ class BannerController extends Controller
      */
     public function create()
     {
-        //
+        $banners = Banner::where('status', 1)->get();
+        return view('admin.banners.create', compact('banners'));
     }
 
     /**
@@ -35,7 +39,21 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        # Image Code
+        if($request->hasFile('image')){
+            $extension = $request->image->getClientOriginalExtension();
+            $filename = date('mdYHis') . uniqid() . '.' . $extension;
+            $img_path = 'uploads/banners/' . $filename;    
+            
+            Image::make($data['image'])->resize(500,500)->save($img_path);
+            $data['image'] = $filename;
+        }
+        
+        $banner = Banner::create($data);
+
+        alert()->success('Success', 'Banner added successfully!');
+        return redirect()->back();
     }
 
     /**
@@ -57,7 +75,8 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Banner::findOrFail($id);
+        return view('admin.banners.edit', compact('banners'));
     }
 
     /**
@@ -69,7 +88,23 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $banner = Banner::findOrFail($id);
+        
+        # Image Code
+        if($request->hasFile('image')){
+            $extension = $request->image->getClientOriginalExtension();
+            $filename = date('mdYHis') . uniqid() . '.' . $extension;
+            $img_path = 'uploads/products/' . $filename;    
+            
+            Image::make($data['image'])->resize(500,500)->save($img_path);
+            $data['image'] = $filename;
+        }
+        
+        $banner->update($data);
+
+        alert()->success('Success', 'Banner updated successfully!');
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +115,12 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+        if($banner){
+            $banner->delete();
+        }
+
+        alert()->success('Success', 'Banner deleted successfully!')->persistent(true);
+        return redirect()->back();
     }
 }
